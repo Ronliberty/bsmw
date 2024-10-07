@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSMW</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-0 left-0 h-full bg-blue-900 text-white w-64 transform -translate-x-full transition-transform duration-200">
+        <div class="p-6">
+            <h1 class="text-2xl font-bold mb-4">BSMW</h1>
+            <ul>
+                <li class="p-3 hover:bg-blue-700 rounded"><a href="services.html" onclick="showContent('servicesContent')">Services</a></li>
+                <li class="p-3 hover:bg-blue-700 rounded"><a href="Projects.html" >Projects</a></li>
+                <li class="p-3 hover:bg-blue-700 rounded"><a href="ongoing.html" >Ongoing projects</a></li>
+                <li class="p-3 hover:bg-blue-700 rounded"><a href="contact.html" onclick="showContent('contactContent')">Contact</a></li>
+                <li class="p-3 hover:bg-blue-700 rounded"><a href="settings.html" onclick="showContent('settingsContent')">Settings</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="flex flex-col min-h-screen transition-transform duration-200" id="mainContent">
+
+        <!-- Navbar -->
+        <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <button id="toggleSidebar" class="text-blue-900 mr-3">☰</button>
+                <h1 class="text-xl font-semibold">BSMW</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="notifications.html">
+                    <button class="text-blue-900">Notifications</button>
+                </a>
+                <a href="inbox.html">
+                    <button class="text-blue-900">Inbox</button>
+                </a>
+                <a href="profile.html">
+                    <button class="text-blue-900">Profile</button>
+                </a>
+                <a href="index.html">
+                    <button class="text-red-500">Logout</button>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-6">           
+            <!-- Content goes here -->
+        </main>
+    </div>
+
+    <script>
+        // Function to show specific content section
+        function showContent(contentId) {
+            // Hide all content sections
+            document.querySelectorAll('main > div').forEach(div => div.classList.add('hidden'));
+
+            // Show the selected content section
+            document.getElementById(contentId).classList.remove('hidden');
+        }
+
+        // Toggle Sidebar
+        document.getElementById("toggleSidebar").onclick = function() {
+            document.getElementById("sidebar").classList.toggle("-translate-x-full");
+            document.getElementById("mainContent").classList.toggle("ml-64");
+        };
+    </script>
+
+</body>
+</html>
